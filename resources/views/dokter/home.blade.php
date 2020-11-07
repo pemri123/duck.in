@@ -20,7 +20,7 @@
         <div class="card">
             <div class="card-header mb-0"><h5 class="text-center">Profile<span class="font-weight-bold text-primary">Dokter</span></h5></div>
             <div class="card-body">
-            <form>
+          <form>
             <div class="form-group">
               <label>Nama</label>
               <label class="form-control">{{$user->name}}</label>
@@ -33,32 +33,11 @@
              <label>Alamat</label>
              <label class="form-control">{{$user->alamat}}</label>
             </div>
-            </form>
-    <br>
-    <!-- /.box-body -->
-    <div class="box-footer">
-    <div class="container">
-      <div class="row justify-content-center mt-5">
-        <div class="col-md-4">
-        <div class="card">
-            <div class="card-header mb-0"><h5 class="text-center">Ubah<span class="font-weight-bold text-primary">Profile</span></h5></div>
-            <div class="card-body">
-            <form>
             <div class="form-group">
-              <label>Nama</label>
-              <input class="form-control"value="{{$user->name}}"></input>
-            </div>  
-            <div class="form-group">
-              <label>Email</label>
-              <input class="form-control"value="{{$user->email}}"> </input>
+             <label>NoHp</label>
+             <label class="form-control">{{$user->nohp}}</label>
             </div>
-            <div class="form-group">
-             <label>Alamat</label>
-             <input class="form-control"value="{{$user->alamat}}"></input>
-            </div>
-            <input type="submit" name="submit" value="Ubah Profile" />
-            </form>
-    </div>
+          </form>
 
     <!-- /.box-footer-->
   </div>

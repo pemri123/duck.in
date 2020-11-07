@@ -139,6 +139,10 @@ bebek yang akurat.
                                 <label>Alamat</label>
                                 <label class="form-control form-group font-weight-bold text-primary bg-transparent">{{$user->alamat}}</label>
                             </div>
+                            <div class="form-group font-weight-bold text-primary">
+                                <label>NoHp</label>
+                                <label class="form-control form-group font-weight-bold text-primary bg-transparent">{{$user->nohp}}</label>
+                            </div>
                             <a class="btn btn-primary js-scroll-trigger" href="#ubah">Ingin Ubah Profile?</a>
                         </form>
                     </div>
@@ -152,20 +156,26 @@ bebek yang akurat.
                         <div class="card bg-black">
                             <div class="card-header bg-transparent mb-0"><h5 class="text-center font-weight-bold text-primary">Your Profile<span class="font-weight-bold text-primary"> Account</span></h5></div>
                                 <div class="card-body">
-                        <form>
+                        <form method="post" action="/peternak/{{ $user->id }}">
+                        @method('patch')
+                        @csrf
                             <div class="form-group font-weight-bold text-primary">
                                 <label>Nama</label>
-                                <input class="form-control form-group font-weight-bold text-center text-primary bg-transparent" value = '{{$user->name}}'></input>
+                                <input class="form-control form-group font-weight-bold text-center text-primary bg-transparent" id="name" placeholder="masukan nama" name="name" value = '{{$user->name}}'></input>
                             </div>
                             <div class="form-group font-weight-bold text-primary">
                                 <label>Email</label>
-                                <input class="form-control form-group font-weight-bold text-center text-primary bg-transparent" value = '{{$user->email}}'></input>
+                                <input class="form-control form-group font-weight-bold text-center text-primary bg-transparent" id="email" placeholder="masukan email" name="email" value = '{{$user->email}}'></input>
                             </div>
                             <div class="form-group font-weight-bold text-primary">
                                 <label>Alamat</label>
-                                <input class="form-control form-group font-weight-bold text-center text-primary bg-transparent" value = '{{$user->alamat}}'></input>
+                                <input class="form-control form-group font-weight-bold text-center text-primary bg-transparent" id="alamat" placeholder="masukan alamat" name="alamat" value = '{{$user->alamat}}'></input>
                             </div>
-                            <a class="btn btn-primary js-scroll-trigger" href="#ubah">Ubah Profile</a>
+                            <div class="form-group font-weight-bold text-primary">
+                                <label>NoHp</label>
+                                <input class="form-control form-group font-weight-bold text-center text-primary bg-transparent" id="nohp" placeholder="masukan nohp" name="nohp" value = '{{$user->nohp}}'></input>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Ubah Profile</button>
                         </form>
                     </div>
                 </div>
@@ -201,7 +211,7 @@ bebek yang akurat.
                                 <i class="fas fa-mobile-alt text-primary mb-2"></i>
                                 <h4 class="text-uppercase m-0">Phone</h4>
                                 <hr class="my-4" />
-                                <div class="small text-black-50">+1 (555) 902-8832</div>
+                                <div class="small text-black-50">{{$user->nohp}}</div>
                             </div>
                         </div>
                     </div>

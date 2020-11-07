@@ -42,6 +42,7 @@ class tambahAkunController extends Controller
             'password'=>bcrypt($request->password),
             'gender'=>$request->gender,
             'alamat'=>$request->alamat,
+            'nohp'=>$request->nohp,
             'role'=>3
 
         ]);

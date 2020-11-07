@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use Auth;
-
-class profileDokterController extends Controller
+use Illuminate\Support\Facades\DB;
+class ubahAkunDokterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,7 @@ class profileDokterController extends Controller
     public function index()
     {
         $user=Auth::user();
-        return view('dokter.home')->with('user',$user);
+        return view('dokter.edit')->with('user',$user);
     }
 
     /**
@@ -26,7 +27,6 @@ class profileDokterController extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -59,7 +59,9 @@ class profileDokterController extends Controller
      */
     public function edit($id)
     {
-       //
+        return view('dokter.edit', [
+            'users' => User::findOrFail($id)
+        ]);
     }
 
     /**
@@ -71,7 +73,11 @@ class profileDokterController extends Controller
      */
     public function update(Request $request, $id)
     {
-       //
+         DB::update("UPDATE users SET name='".$request->input('name')."' WHERE id= ".$id);
+         DB::update("UPDATE users SET email='".$request->input('email')."' WHERE id= ".$id);
+         DB::update("UPDATE users SET alamat='".$request->input('alamat')."' WHERE id= ".$id);
+         DB::update("UPDATE users SET nohp='".$request->input('nohp')."' WHERE id= ".$id);
+         return redirect('/dokter')->with('success','Telah berhasil Mengganti Data Profile');
     }
 
     /**

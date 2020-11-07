@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->enum('role', ['admin','peternak','dokter'])->default('peternak');
             $table->string('alamat')->nullable();
             $table->enum('gender',['pria','wanita'])->nullable();
+            $table->char('nohp')->nullable();
         });
     }
 

@@ -85,9 +85,23 @@
                         <label>Jenis kelamin:</label>
                             <label><input type="radio" name="gender" value="1" /> Pria</label>
                             <label><input type="radio" name="gender" value="2" /> Wanita</label>
-                        @if ($errors->has('alamat'))
+                        @if ($errors->has('gender'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('gender') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="nohp" class="col-md-4 col-form-label text-md-right">{{ __('Nohp') }}</label>
+
+                    <div class="col-md-8">
+                        <input id="nohp" type="number" class="form-control{{ $errors->has('nohp') ? ' is-invalid' : '' }}" name="nohp" value="{{ old('nohp') }}" required>
+
+                        @if ($errors->has('nohp'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('nohp') }}</strong>
                             </span>
                         @endif
                     </div>

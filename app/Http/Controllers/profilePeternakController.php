@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
-
+use Illuminate\Support\Facades\DB;
 class profilePeternakController extends Controller
 {
     /**
@@ -59,7 +59,9 @@ class profilePeternakController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('peternak.home', [
+            'users' => User::findOrFail($id)
+        ]);
     }
 
     /**
@@ -71,19 +73,11 @@ class profilePeternakController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'email',
-            'alamat' => 'required',
-        ]);
-
-        User::where('id', $student->id)
-                ->update([
-                    'name' => $request->name,
-                    'email' => $request->email,
-                    'alamat' => $request->alamat,
-                ]);
-                return redirect('/profile-peternak')->with('status','Data Berhasil di Ubah');
+        DB::update("UPDATE users SET name='".$request->input('name')."' WHERE id= ".$id);
+        DB::update("UPDATE users SET email='".$request->input('email')."' WHERE id= ".$id);
+        DB::update("UPDATE users SET alamat='".$request->input('alamat')."' WHERE id= ".$id);
+        DB::update("UPDATE users SET nohp='".$request->input('nohp')."' WHERE id= ".$id);
+        return redirect('/peternak');
     }
 
     /**

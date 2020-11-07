@@ -82,8 +82,16 @@
     <ul class="sidebar-menu">
       <li class="header">MAIN NAVIGATION</li>
       <li class="treeview">
-            <li><a href="{{ url('/dokter') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        </li>
+        <a href="{{ url('/dokter') }}">
+            <i class="fa fa-user"></i> <span>Profile</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+          <li><a href="{{ url('/edit-dokter') }}"><i class="fa fa-user"></i> Edit Profile</a></li>
+
+          </ul>
         <li class="treeview">
         <a href="#">
             <i class="fa fa-share"></i> <span>Data Penyakit</span>
@@ -98,7 +106,7 @@
           <li class="treeview">
             <li><a href="{{ url('/dokter') }}"><i class="fa fa-group"></i> Form Konsultasi</a></li>
         </li>
-      </li>
+      </li>     
     </ul>
     </section>
     <!-- /.sidebar -->

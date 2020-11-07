@@ -92,7 +92,6 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="{{ url('/akun-dokter') }}"><i class="fa fa-pencil"></i>Lihat Data Dokter</a></li>
             <li><a href="{{ url('/akun-dokter') }}"><i class="fa fa-pencil"></i>Tambah Data Dokter</a></li>
           </ul>
       </li>

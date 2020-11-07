@@ -50,6 +50,10 @@
             <textarea name="alamat"></textarea>
         </p>
         <p>
+            <label>NoHp:</label>
+            <input type="number" name="nohp" placeholder="Nohp....." />
+        </p>
+        <p>
             <input type="submit" name="submit" value="Buat Akun" />
         </p>
         </fieldset>

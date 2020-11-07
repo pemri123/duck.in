@@ -34,10 +34,15 @@ Route::group(['middleware'=> ['auth', 'checkRole:admin']], function (){
 Route::group(['middleware' => ['auth', 'checkRole:peternak']], function () {
     Route::get('/peternak', 'HomeController@peternak');
     Route::get('/peternak', 'profilePeternakController@index');
+    Route::get('/peternak/{peternak}/edit','profilePeternakController@edit');
+    Route::patch('/peternak/{peternak}','profilePeternakController@update');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:dokter']], function () {
     Route::get('/dokter', 'HomeController@dokter');
     Route::get('/dokter', 'profileDokterController@index');
+    Route::get('/edit-dokter', 'ubahAkunDokterController@index');
+    Route::get('/edit-dokter/{dokter}/edit','ubahAkunDokterController@edit');
+    Route::patch('/edit-dokter/{dokter}','ubahAkunDokterController@update');
 });
 
