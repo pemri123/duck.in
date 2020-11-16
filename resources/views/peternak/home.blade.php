@@ -94,7 +94,7 @@ bebek yang akurat.
                                     <p class="mb-0 text-white-50">Anda bisa mengetahaui informasi mengenai cara perawatan bebek dengan baik</p>
                                     <hr class="d-none d-lg-block mb-0 ml-0" />
                                     <br>
-                                    <a class="btn btn-primary js-scroll-trigger" href="#">Lihat Perawatan Bebek</a>
+                                    <a class="btn btn-primary js-scroll-trigger" href="{{ route('perawatan.index') }}">Lihat Perawatan Bebek</a>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +111,7 @@ bebek yang akurat.
                                     <p class="mb-0 text-white-50">Anda bisa mengetahui informasi mengenai penyakit apa saja yang di alami oleh bebek dan cara pencegahan penyakit tersebut</p>
                                     <hr class="d-none d-lg-block mb-0 mr-0" />
                                     <br>
-                                    <a class="btn btn-primary js-scroll-trigger" href="#">Lihat Penyakit Bebek</a>
+                                    <a class="btn btn-primary js-scroll-trigger" href="{{ route('perawatan.index') }}">Lihat Penyakit Bebek</a>
                                 </div>
                             </div>
                         </div>

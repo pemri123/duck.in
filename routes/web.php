@@ -22,6 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::post('/akun-dokter/create','tambahAkunController@store');
 //Route::get('/admin', 'profileDokterController@index');
 //Route::get('/profile-peternak', 'profilePeternakController@index');
+Route::resource('perawatan', 'perawataController');
+Route::get('/Perawatan-kategori/{kategori}', 'perawataController@perawatan_kategori')->name('perawatan.kategori');
+
 
 
 
@@ -29,6 +32,8 @@ Route::group(['middleware'=> ['auth', 'checkRole:admin']], function (){
     Route::get('/admin', 'HomeController@admin');
     Route::get('/akun-dokter', 'tambahAkunController@create');
     Route::post('/akun-dokter/create','tambahAkunController@store');
+    Route::resource('categori', 'CategoriController');
+    Route::resource('artikel', 'ArtikelController');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:peternak']], function () {

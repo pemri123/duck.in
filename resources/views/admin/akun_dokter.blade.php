@@ -54,7 +54,7 @@
             <input type="number" name="nohp" placeholder="Nohp....." />
         </p>
         <p>
-            <input type="submit" name="submit" value="Buat Akun" />
+            <input type="submit" name="submit" value="Tambah Akun Baru" />
         </p>
         </fieldset>
     </form>

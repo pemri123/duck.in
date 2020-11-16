@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="{{ asset('fonts/font-awesome.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{ asset('fonts/ionicons.min.css') }}">
+  <!-- custom css -->
+  @stack('customcss')
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
   <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">
@@ -86,7 +88,7 @@
         </li>
         <li class="treeview">
         <a href="#">
-            <i class="fa fa-share"></i> <span>Data Dokter</span>
+            <i class="fa fa-user"></i> <span>Data Dokter</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -94,6 +96,16 @@
           <ul class="treeview-menu">
             <li><a href="{{ url('/akun-dokter') }}"><i class="fa fa-pencil"></i>Tambah Data Dokter</a></li>
           </ul>
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Artikel Bebek</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('categori.index') }}"><i class="fa fa-pencil"></i> Category</a></li>
+            <li><a href="{{ route('artikel.index') }}"><i class="fa fa-pencil"></i> Artikel</a></li>
+        </ul>
       </li>
     </ul>
     </section>
@@ -115,15 +127,10 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b><a href="#">Duck.in</a></b>
-    </div>
-    <strong> <a href="#">Duck.in</a></strong>
-  </footer>
 <script src="{{ asset('plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+@stack('datatables')
 <!-- SlimScroll -->
 <script src="{{ asset('plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
 <!-- FastClick -->
@@ -132,5 +139,6 @@
 <script src="{{ asset('dist/js/app.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('dist/js/demo.js') }}"></script>
+@stack('customdatatables')
 </body>
 </html>

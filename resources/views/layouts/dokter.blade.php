@@ -94,14 +94,14 @@
           </ul>
         <li class="treeview">
         <a href="#">
-            <i class="fa fa-share"></i> <span>Data Penyakit</span>
+            <i class="fa fa-share"></i> <span>Data Penyakit dan Data Perawatan</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-pencil"></i>Tambah Data Penyakit</a></li>
-            <li><a href="#"><i class="fa fa-pencil"></i>Ubah Data Penyakit</a></li>
+          <li><a href="{{ route('perawatan.index') }}"><i class="fa fa-pencil"></i>Lihat Data Perawatan</a></li>
+            <li><a href="{{ route('perawatan.index') }}"><i class="fa fa-pencil"></i>Lihat Data Penyakit</a></li>
           </ul>
           <li class="treeview">
             <li><a href="{{ url('/dokter') }}"><i class="fa fa-group"></i> Form Konsultasi</a></li>
