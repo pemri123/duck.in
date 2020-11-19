@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="{{ asset('fonts-icons/ionicons.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css')}}">
+  <link rel="icon" type="image/x-icon" href="{{ asset('user/assets/img/duck.ico') }}"/>
   <!-- iCheck -->
   <link rel="stylesheet" href="{{ asset('plugins/iCheck/square/blue.css') }}">
 </head>

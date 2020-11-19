@@ -2,7 +2,7 @@
 @push('nav')
     <ul class="nav-menu nav navbar-nav">
         @foreach($categori as $item)
-        <li><a href="{{ route('perawatan.kategori',$item->slug) }}">{{ $item->nama_kategori }}</a></li>
+        <li class = "cat-1"><a href="{{ route('perawatan.kategori',$item->slug) }}">{{ $item->nama_kategori }}</a></li>
         @endforeach
     </ul>
 @endpush
@@ -24,7 +24,7 @@
                             <a class="post-category cat-2" href="#">{{ $a->kategori->nama_kategori }}</a>
                             <span class="post-date">{{ $a->created_at->diffforHumans() }}</span>
                         </div>
-                        <h3 class="post-title"><a href="#">{{$a->judul}}</a></h3>
+                        <h3 class="post-title"><a href="{{ route('perawatan.show', $a->judul) }}">{{$a->judul}}</a></h3>
                     </div>
                 </div>
             </div>
@@ -63,6 +63,7 @@
                                 </div>
                                 <h3 class="post-title"><a href="{{ route('perawatan.show', $all->judul) }}">{{$all->judul}}</a></h3>
                             </div>
+                            <p class="post-meta" style = "color:#00FF00">{!!substr($all['body'],0,150)!!}</p>
                         </div>
                     </div>
 
@@ -81,10 +82,10 @@
                     </div>
                     @foreach($artikelterkait as $terkait)
                     <div class="post post-widget">
-                        <a class="post-img" href="blog-post.html"><img src="{{asset('uploads/'.$terkait->gambar)}}"
+                        <a class="post-img" href="#"><img src="{{asset('uploads/'.$terkait->gambar)}}"
                                 alt=""></a>
                         <div class="post-body">
-                            <h3 class="post-title"><a href="blog-post.html">{{$terkait->judul}}</a></h3>
+                            <h3 class="post-title"><a href="{{ route('perawatan.show', $terkait->judul) }}">{{$terkait->judul}}</a></h3>
                         </div>
                     </div>
                     @endforeach

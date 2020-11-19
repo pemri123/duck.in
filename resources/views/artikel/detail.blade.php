@@ -47,17 +47,19 @@
                     <div class="section-title">
                         <h2>Featured Posts</h2>
                     </div>
+                    @foreach($artikelterkait as $item)
                     <div class="post post-thumb">
-                        <a class="post-img" href="blog-post.html"><img src="{{asset('front/img/post-2.jpg')}}" alt=""></a>
+                        <a class="post-img" href="blog-post.html"><img src="{{asset('uploads/'.$item->gambar)}}" widht= "200px" height="200px" alt=""></a>
                         <div class="post-body">
                             <div class="post-meta">
-                                <a class="post-category cat-3" href="#">Jquery</a>
-                                <span class="post-date">March 27, 2018</span>
+                                <a class="post-category cat-3" href="#">{{ $item->kategori->nama_kategori }}</a>
+                                <span class="post-date">{{ $item->created_at->diffforHumans() }}</span>
                             </div>
-                            <h3 class="post-title"><a href="blog-post.html">Ask HN: Does Anybody Still JQuery?</a>
+                            <h3 class="post-title"><a href="{{ route('perawatan.show', $item->judul) }}">{{ $item->judul }}</a>
                             </h3>
                         </div>
                     </div>
+                    @endforeach
 
 
                 </div>

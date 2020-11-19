@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="{{ asset('fonts/font-awesome.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{ asset('fonts/ionicons.min.css') }}">
+  <link rel="icon" type="image/x-icon" href="{{ asset('user/assets/img/duck.ico') }}" />
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
   <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">

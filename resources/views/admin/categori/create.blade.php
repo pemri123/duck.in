@@ -17,10 +17,20 @@
         @csrf
           <div class="box-body">
             <div class="form-group">
+            @if($errors->has('nama_kategori'))
+              <div class="alert alert-danger">
+                <strong>{{ $errors->first('nama_kategori')}}</strong>
+              </div>
+            @endif
               <label for="exampleInputEmail1">Nama Kategori</label>
               <input type="text" class="form-control" name="nama_kategori" placeholder="Kategori"  value="{{ old('nama_kategori') }}">
             </div>
             <div class="form-group">
+            @if($errors->has('slug'))
+              <div class="alert alert-danger">
+                <strong>{{ $errors->first('slug')}}</strong>
+              </div>
+            @endif
               <label for="exampleInputEmail1">Slug Kategori</label>
               <input type="text" class="form-control" name="slug" placeholder="Slug Kategori"  value="{{ old('slug') }}">
             </div>
@@ -28,8 +38,7 @@
           <!-- /.box-body -->
           <div class="box-footer">
             <button type="submit" class="btn btn-primary">Submit</button>
-            <button href="{{ route('categori.index') }}" class="btn btn-danger">Kembali</button>
-
+            <a href="{{ route('categori.index') }}" class="btn btn-danger">Kembali</a>
           </div>
         </form>
       </div>

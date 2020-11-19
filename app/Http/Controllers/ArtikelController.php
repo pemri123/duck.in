@@ -39,13 +39,26 @@ class ArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        $image=$request->file('gambar')->store('perawtan');
+        $this->validate($request, [
+            'judul' => 'required',
+            'body' => 'required|min:20',
+            'gambar' => 'mimes:jpeg,bmp,png',
+        ]);
+        if(empty($request->file('gambar'))){
+            Perawatan::create([
+                'judul'=>\Str::slug($request->judul),
+                'body'=>$request->body,
+                //'gambar'=>$image,
+                'categoris_id'=>$request->categoris_id,
+        ]);
+    }else{
         Perawatan::create([
             'judul'=>\Str::slug($request->judul),
             'body'=>$request->body,
-            'gambar'=>$image,
+            'gambar'=>$request->file('gambar')->store('perawtan'),
             'categoris_id'=>$request->categoris_id,
-        ]);
+    ]);
+    }
         return redirect()->route('artikel.index');
     }
 
@@ -82,14 +95,30 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $artikel=Perawatan::find($id);
-        Storage::delete($artikel->gambar);
-        $artikel->update([
-            'judul'=>\Str::slug($request->judul),
-            'body'=>$request->body,
-            'gambar'=>$request->file('gambar')->store('artikel'),
-            'categoris_id'=>$request->categoris_id,
+        $this->validate($request, [
+            'judul' => 'required',
+            'body' => 'required|min:20',
+            'gambar' => 'mimes:jpeg,bmp,png',
         ]);
+        if(empty($request->file('gambar'))){
+            $artikel=Perawatan::find($id);
+            //Storage::delete($artikel->gambar);
+            $artikel->update([
+                'judul'=>\Str::slug($request->judul),
+                'body'=>$request->body,
+                //'gambar'=>$request->file('gambar')->store('artikel'),
+                'categoris_id'=>$request->categoris_id,
+        ]);
+    }else{
+        $artikel=Perawatan::find($id);
+            Storage::delete($artikel->gambar);
+            $artikel->update([
+                'judul'=>\Str::slug($request->judul),
+                'body'=>$request->body,
+                'gambar'=>$request->file('gambar')->store('artikel'),
+                'categoris_id'=>$request->categoris_id,
+        ]);
+    }
         return redirect()->route('artikel.index');
     }
 

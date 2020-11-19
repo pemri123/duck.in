@@ -52,8 +52,9 @@ class perawataController extends Controller
     public function show(Perawatan $perawatan)
     {
         $artikel_detail = $perawatan;
+        $artikelterkait=Perawatan::latest()->get()->random(2);
         $categori=Categori::withCount('Perawatan')->get();
-        return view('artikel.detail', compact('artikel_detail', 'categori'));
+        return view('artikel.detail', compact('artikel_detail', 'categori','artikelterkait'));
     }
 
     /**

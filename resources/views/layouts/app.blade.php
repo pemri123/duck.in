@@ -17,6 +17,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
   <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">
+  <link rel="icon" type="image/x-icon" href="{{ asset('user/assets/img/duck.ico') }}" />
 
 </head>
 <body class="hold-transition skin-purple sidebar-mini">

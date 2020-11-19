@@ -17,10 +17,20 @@
       <form action="{{ route('artikel.store') }}" enctype="multipart/form-data" method="POST">
         @csrf
         <div class="form-group">
+        @if($errors->has('judul'))
+              <div class="alert alert-danger">
+                <strong>{{ $errors->first('judul')}}</strong>
+              </div>
+            @endif
           <label>Judul Artikel</label>
           <input type="text" class="form-control" name="judul">
         </div>
         <div class="form-group">
+        @if($errors->has('gambar'))
+              <div class="alert alert-danger">
+                <strong>{{ $errors->first('gambar')}}</strong>
+              </div>
+            @endif
           <label>Gambar</label>
           <input type="file" class="form-control" name="gambar">
         </div>
@@ -33,6 +43,11 @@
           </select>
         </div>
         <div class="form-group">
+        @if($errors->has('body'))
+              <div class="alert alert-danger">
+                <strong>{{ $errors->first('body')}}</strong>
+              </div>
+            @endif
           <label>Isi Artikel</label>
            <textarea name="body" id="editor1" class="textarea" placeholder="Place some text here"
                 style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
@@ -40,7 +55,7 @@
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Tambah Artikel</button>
-          <a href="#" class="btn btn-danger">Kembali</a>
+          <a href="{{ route('artikel.index') }}" class="btn btn-danger">Kembali</a>
         </div>
 
       </form>

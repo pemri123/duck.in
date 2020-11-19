@@ -36,6 +36,10 @@ class CategoriController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'nama_kategori' => 'required|min:5',
+            'slug' => 'required',
+        ]);
         Categori::create($request->all());
         return redirect()->route('categori.index');
     }
