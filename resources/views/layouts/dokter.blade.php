@@ -83,6 +83,9 @@
     <ul class="sidebar-menu">
       <li class="header">MAIN NAVIGATION</li>
       <li class="treeview">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Rekap Data Peternak</a></li>
+    </li>
+      <li class="treeview">
         <a href="{{ url('/dokter') }}">
             <i class="fa fa-user"></i> <span>Profile</span>
             <span class="pull-right-container">
@@ -105,7 +108,7 @@
             <li><a href="{{ route('perawatan.index') }}"><i class="fa fa-pencil"></i>Lihat Data Penyakit</a></li>
           </ul>
           <li class="treeview">
-            <li><a href="{{ url('/dokter') }}"><i class="fa fa-group"></i> Form Konsultasi</a></li>
+            <li><a href="{{ route('fdokter.index') }}"><i class="fa fa-group"></i> Form Konsultasi</a></li>
         </li>
       </li>     
     </ul>

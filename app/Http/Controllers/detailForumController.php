@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\User;
-
-class tambahAkunController extends Controller
+use Illuminate\Support\Facades\Auth;
+use App\User; 
+use App\Konsultasi;
+class detailForumController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class tambahAkunController extends Controller
      */
     public function index()
     {
-        //
+        return view('peternak.forum');
     }
 
     /**
@@ -25,7 +25,8 @@ class tambahAkunController extends Controller
      */
     public function create()
     {
-        return view ('admin.akun_dokter');
+        $user = User::select('id','nama')->get();
+        return view ('peternak.forum',compact('user'));
     }
 
     /**
@@ -36,19 +37,14 @@ class tambahAkunController extends Controller
      */
     public function store(Request $request)
     {
-        User::create ([
-            'name' => $request->name, 
-            'email'=>$request->email,
-            'password'=>bcrypt($request->password),
-            'gender'=>$request->gender,
-            'alamat'=>$request->alamat,
-            'nohp'=>$request->nohp,
-            'description'=>$request->description,
-            'role'=>3
+        Konsultasi::create([
+            'peternak_id'=>Auth::user()->id,
+            'dokter_id'=>$request->dokter_id,
+            'pertanyaan'=>$request->pertanyaan,
+            'status'=> "belum",
 
         ]);
-        return redirect('/akun-dokter')
-        ->with('success','Telah berhasil Membuat Akun');
+        return back();
     }
 
     /**
@@ -59,7 +55,10 @@ class tambahAkunController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Konsultasi::where(['peternak_id' => Auth::user()->id, 'dokter_id' => $id])->get();
+        // dd($data);
+        return view ('peternak.forum',compact(['id' ,'data']));
+
     }
 
     /**

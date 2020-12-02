@@ -79,7 +79,7 @@ bebek yang akurat.
                             <h4>Konsultasi</h4>
                             <p class="text-black-50 mb-0">Anda bisa berkonsultasi mengenai masalah perawatan bebek dan cara mengobati penyakit bebek dengan dokter hewan yang tersedia di website kami </p>
                             <hr>
-                            <a class="btn btn-primary js-scroll-trigger" href="#">Mulai Konsultasi</a>
+                            <a class="btn btn-primary js-scroll-trigger" href="{{ route('konsultasi.index') }}">Mulai Konsultasi</a>
                         </div>
                     </div>
                 </div>

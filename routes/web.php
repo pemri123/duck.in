@@ -41,6 +41,8 @@ Route::group(['middleware' => ['auth', 'checkRole:peternak']], function () {
     Route::get('/peternak', 'profilePeternakController@index');
     Route::get('/peternak/{peternak}/edit','profilePeternakController@edit');
     Route::patch('/peternak/{peternak}','profilePeternakController@update');
+    Route::resource('konsultasi','KonsultasiController');
+    Route::resource('detail','detailForumController');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:dokter']], function () {
@@ -49,5 +51,8 @@ Route::group(['middleware' => ['auth', 'checkRole:dokter']], function () {
     Route::get('/edit-dokter', 'ubahAkunDokterController@index');
     Route::get('/edit-dokter/{dokter}/edit','ubahAkunDokterController@edit');
     Route::patch('/edit-dokter/{dokter}','ubahAkunDokterController@update');
+    Route::resource('fdokter','forumDokterController');
+    Route::resource('konsul','konsultasiDokterController');
+    Route::post('konsul/{id}', 'konsultasiDokterController@update');
 });
 

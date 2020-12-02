@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\User;
-
-class tambahAkunController extends Controller
+class KonsultasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +13,8 @@ class tambahAkunController extends Controller
      */
     public function index()
     {
-        //
+        $dokter = User::where('role', 'dokter')->get();
+        return view ('peternak.konsultasi', compact(['dokter']));
     }
 
     /**
@@ -25,7 +24,7 @@ class tambahAkunController extends Controller
      */
     public function create()
     {
-        return view ('admin.akun_dokter');
+        //
     }
 
     /**
@@ -36,19 +35,7 @@ class tambahAkunController extends Controller
      */
     public function store(Request $request)
     {
-        User::create ([
-            'name' => $request->name, 
-            'email'=>$request->email,
-            'password'=>bcrypt($request->password),
-            'gender'=>$request->gender,
-            'alamat'=>$request->alamat,
-            'nohp'=>$request->nohp,
-            'description'=>$request->description,
-            'role'=>3
-
-        ]);
-        return redirect('/akun-dokter')
-        ->with('success','Telah berhasil Membuat Akun');
+        //
     }
 
     /**

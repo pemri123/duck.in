@@ -54,14 +54,16 @@
             <input type="number" name="nohp" placeholder="Nohp....." />
         </p>
         <p>
+        <label>Descripton</label>
+        <textarea name="description"  class="textarea" 
+             style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+       </textarea>
+      </p>
+        <p>
             <input type="submit" name="submit" value="Tambah Akun Baru" />
         </p>
         </fieldset>
     </form>
-    </div>
-    <!-- /.box-body -->
-    <div class="box-footer">
-      Footer
     </div>
     <!-- /.box-footer-->
   </div>
